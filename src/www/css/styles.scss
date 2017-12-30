@@ -1,0 +1,185 @@
+@import '~modularscale-sass/stylesheets/modular-scale';
+@import '~vertical-rhythmic/vertical-rhythmic';
+@font-face {
+  font-family: 'Gotham Medium';
+  src: url('/../fonts/Gotham-Medium/Gotham-Medium.eot');
+  src: url('/../fonts/Gotham-Medium/Gotham-Medium.woff2') format('woff2'),
+       url('/../fonts/Gotham-Medium/Gotham-Medium.woff') format('woff'),
+       url('/../fonts/Gotham-Medium/Gotham-Medium.otf') format('opentype'),
+       url('/../fonts/Gotham-Medium/Gotham-Medium.ttf') format('truetype'),
+       url('/../fonts/Gotham-Medium/Gotham-Medium.svg#Gotham-Medium') format('svg'),
+       url('/../fonts/Gotham-Medium/Gotham-Medium.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham Black';
+  src: url('/../fonts/Gotham-Black/Gotham-Black.eot');
+  src: url('/../fonts/Gotham-Black/Gotham-Black.woff2') format('woff2'),
+       url('/../fonts/Gotham-Black/Gotham-Black.woff') format('woff'),
+       url('/../fonts/Gotham-Black/Gotham-Black.otf') format('opentype'),
+       url('/../fonts/Gotham-Black/Gotham-Black.ttf') format('truetype'),
+       url('/../fonts/Gotham-Black/Gotham-Black.svg#Gotham-Black') format('svg'),
+       url('/../fonts/Gotham-Black/Gotham-Black.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham Book';
+  src: url('/../fonts/Gotham-Book/Gotham-Book.eot');
+  src: url('/../fonts/Gotham-Book/Gotham-Book.woff2') format('woff2'),
+       url('/../fonts/Gotham-Book/Gotham-Book.woff') format('woff'),
+       url('/../fonts/Gotham-Book/Gotham-Book.otf') format('opentype'),
+       url('/../fonts/Gotham-Book/Gotham-Book.ttf') format('truetype'),
+       url('/../fonts/Gotham-Book/Gotham-Book.svg#Gotham-Book') format('svg'),
+       url('/../fonts/Gotham-Book/Gotham-Book.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+$ms-base: 14px;
+$ms-ratio: $golden;
+$baseline: calc((#{ms(0)} + #{ms(-1)}) / 2); // 11px
+$vr-rhythm: ms(3);
+
+$fontFamily: 'Gotham Book';
+$headerFontFamily: 'Gotham Black';
+$subheaderFontFamily: 'Gotham Book';
+
+$baseFontSize: ms(0);
+$subheaderFontSize: ms(0);
+$titleFontSize: ms(1);
+$headerFontSize: ms(2);
+$largeHeaderFontSize: ms(3);
+
+// font-size + leading
+$baseLineHeight: calc(#{$baseline} * 2);
+$subheaderLineHeight: calc(#{$subheaderFontSize} + #{ms(-1)});
+$titleLineHeight: calc(#{$titleFontSize} + #{ms(-1)});
+$headerLineHeight: calc(#{$headerFontSize} + #{ms(-1)});
+$largeHeaderLineHeight: calc((#{$largeHeaderFontSize} + #{ms(0)}));
+
+$headerLetterSpacing: ms(-5);
+
+$baseWidth: ms(5);
+$subheaderWidth: ms(6);
+$titleWidth: ms(7);
+$headerWidth: ms(8);
+$largeHeaderWidth: ms(9);
+
+$baseMargin: $baseline;
+$subheaderMargin: calc(#{$baseline} * 2);
+$titleMargin: calc(#{$baseline} * 2);
+$headerMargin: calc(#{$baseline} * 3);
+$largeHeaderMargin: calc(#{$baseline} * 4);
+
+$basePadding: $baseline;
+$subheaderPadding: $baseline;
+$titlePadding: calc(#{$baseline} * 2);
+$headerPadding: calc(#{$baseline} * 3);
+$largeHeaderPadding: calc(#{$baseline} * 4);
+
+$blackPrimary: rgba(0,0,0,0.87);
+$whitePrimary: rgba(255,255,255,1);
+$blue: rgb(1,51,104);
+$blueShaded: rgb(1,31,64);
+$gray: #4B4F54;
+$red: rgb(213,0,0);
+$white: rgb(252,253,255);
+
+html {
+  // @include vr-fluid(ms(0), ms(2), 30em, 100em);
+  // line-height: vr-strip(vr(1));
+  @include vr-optimize();
+}
+
+body {
+  color: $blackPrimary;
+  font-family: $fontFamily;
+  // TODO - implement fluid font size
+  // font-size: calc(14px + 9 * ((100vw - 1000px) / 1550)) !important;
+  font-size: $baseFontSize;
+  line-height: $baseLineHeight;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  // Built with H2 in mind!
+  font-family: $headerFontFamily;
+  font-size: $headerFontSize;
+  line-height: $headerLineHeight;
+  letter-spacing: $headerLetterSpacing;
+  margin-bottom: $headerMargin;
+  margin-top: $headerMargin;
+  // width: $headerWidth;
+  // text-transform: uppercase; // implement when we have a header font
+}
+
+h1 {
+  font-size: $largeHeaderFontSize;
+  line-height: $largeHeaderLineHeight;
+  margin: auto;
+  margin-bottom: $largeHeaderMargin;
+  margin-top: $largeHeaderMargin;
+  // width: $largeHeaderWidth;
+}
+
+h2 {
+
+}
+
+// h3 {
+//   font-size: $titleFontSize;
+//   font-weight: 500;
+//   line-height: $titleLineHeight;
+//   margin: auto;
+//   margin-bottom: $titleMargin;
+//   margin-top: $titleMargin;
+//   // width: $titleWidth;
+// }
+
+h4 {
+  font-family: $subheaderFontFamily;
+  font-size: $subheaderFontSize;
+  font-weight: 500;
+  line-height: $subheaderLineHeight;
+  margin: auto;
+  margin-bottom: $subheaderMargin;
+  margin-top: $subheaderMargin;
+  // width: $subheaderWidth;
+}
+
+p, button {
+  margin-bottom: $baseMargin;
+  margin-top: $baseMargin;
+}
+
+.header, .footer {
+  width: ms(9);
+  width: calc(406px + (1063 - 406)*(100vw - 400px)/(1440 - 400));
+}
+
+input:focus + label {
+  top: 2px;
+}
+
+input:valid + label {
+  top: 2px;
+}
+
+.mdl-snackbar__text {
+  margin: $baseline 0;
+  padding: $baseline $baseline $baseline calc(#{$baseline} * 2);
+}
+
+.mdl-snackbar__action {
+  color: $red;
+  font-family: $fontFamily;
+  margin: $baseline 0;
+  padding: $baseline calc(#{$baseline} * 2) $baseline $baseline;
+}
+
+.mdl-tabs__tab-bar {
+  border-bottom: none;
+}
